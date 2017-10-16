@@ -39,15 +39,16 @@ ImportError: No module named cv2
 in your Python sys.path, so you will not be able to import the modules
 this formula installed. If you plan to develop with these modules,
 please run:
-  mkdir -p /Users/'yourusername'/.local/lib/python2.7/site-packages
-  echo 'import site; site.addsitedir("/usr/local/lib/python2.7/site-packages")' >> /Users/'yourusername'/.local/lib/python2.7/site-packages/homebrew.pth
+  mkdir -p /Users/yourusername/.local/lib/python2.7/site-packages
+  echo 'import site; site.addsitedir("/usr/local/lib/python2.7/site-packages")' >> /Users/yourusername/.local/lib/python2.7/site-packages/homebrew.pth
 ==> Summary
 /usr/local/Cellar/opencv/3.3.0_3: 516 files, 125.0MB
 
 根据提示执行如下命令，将yourusername替换为您自己环境的用户名，重新检查OpenCV，环境OK
 ```
  $mkdir -p /Users/yourusername/.local/lib/python2.7/site-packages
- $echo 'import site; site.addsitedir("/usr/local/lib/python2.7/site-packages")' >> /Users/yourusername/.local/lib/python2.7/site-packages/homebrew.pth
+ $echo 'import site; site.addsitedir("/usr/local/lib/python2.7/site-packages")' \
+    >> /Users/yourusername/.local/lib/python2.7/site-packages/homebrew.pth
 ```
 #### 依赖库安装
 在执行程序过程中会遇到各种找不到'ImportError: No module named xxx'的问题，当遇到类似问题，可以尝试执行如下命令解决
@@ -55,6 +56,18 @@ please run:
 $sudo pip install -i https://pypi.tuna.tsinghua.edu.cn/simple/ xxx
 ```
 这里的xxx表示依赖库的名称
+#### 问题
+**[RuntimeError: Python is not installed as a framework 错误解决方案](http://www.mamicode.com/info-detail-1421075.html)**
+  
+  pip安装matplotlib之后，会在根目录下产生一个.matplotlib的目录:
+  ```
+  $ ls -l ~/.matplotlib/
+  -rw-r--r--  1 me  staff  120855 10 15 18:53 fontList.json
+  drwxr-xr-x  2 me  staff      68 10 15 18:53 tex.cache
+  ```
+  在这个目录下创建一个名为matplotlibrc的文件，内容是：
+  ```backend: TkAgg```
+  然后保存退出，重启Python交互界面或重新运行脚本，import正常执行。
 
 ### 参考资料
 * [极客学院《TensorFlow 官方文档中文版》- 下载与安装](http://wiki.jikexueyuan.com/project/tensorflow-zh/get_started/os_setup.html)
