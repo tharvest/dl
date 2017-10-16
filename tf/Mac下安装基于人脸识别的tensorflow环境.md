@@ -1,14 +1,14 @@
 # MAC下安装人脸识别的TensorFlow环境 
-**本文记录MAC实体环境的安装，非conda,virtualenv,docker等环境**
+**本文记录MAC实体环境的安装，非conda，virtualenv，docker等环境**
 
-#### 安装pip
-pip和easy_install也是python的安装与管理工具，后续都使用pip.
+#### 1.安装pip
+pip和easy_install也是python的安装与管理工具，后续都使用pip。
 ```
 $sudo easy_install pip
 $sudo easy_install --upgrade six
 ```
 #### 安装TensorFlow
-由于[TensorFlow境外网站](https://storage.googleapis.com/tensorflow)访问比较困难，选择[清华大学开源镜像网站](https://mirrors.tuna.tsinghua.edu.cn/help/tensorflow/),
+由于[TensorFlow境外网站](https://storage.googleapis.com/tensorflow)访问比较困难，选择[清华大学开源镜像网站](https://mirrors.tuna.tsinghua.edu.cn/help/tensorflow/)，
 网站提供了选择：计算单元，操作系统，Python版本，TensorFlow版本的下拉菜单，根据自己的实际环境选择，然后生成安装命令，我的选择如下:
 
 |选项|值|
