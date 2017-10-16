@@ -66,7 +66,9 @@ $sudo pip install -i https://pypi.tuna.tsinghua.edu.cn/simple/ xxx
   drwxr-xr-x  2 me  staff      68 10 15 18:53 tex.cache
   ```
   在这个目录下创建一个名为matplotlibrc的文件，内容是：
-  ```backend: TkAgg```
+  ```
+  backend: TkAgg
+  ```
   然后保存退出，重启Python交互界面或重新运行脚本，import正常执行。
 
 ### 参考资料
